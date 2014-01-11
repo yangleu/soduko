@@ -1,4 +1,4 @@
-package ui;
+package ui.game;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,8 +35,9 @@ public class GameTable extends JTable{
 		this.setRowMargin(1);
 		setPreferredScrollableViewportSize(tableSize);
 		setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		setRowHeight(tableCellSize.height);
+		setRowHeight(tableCellSize.height );
 		setGridColor(Color.BLACK);
+		
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.setShowHorizontalLines(true);
 		this.setShowVerticalLines(true);
