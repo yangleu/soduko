@@ -43,32 +43,19 @@ public class CellCandidateTableModel extends AbstractTableModel {
 	public void setValueAt(Object value, int row, int column) {
 		// TODO Auto-generated method stub
 		Boolean newValue = (Boolean) value;
-		
-		if (newValue) {
-			cell.candidate[row*3+column] = newValue;
-			candidates ++;
-		}	else if (1== candidates) {
-			return;  // The only candidates, Can't remove
-		} else { // Remove a candidates to reduce the scope
-			cell.candidate[row*3+column] = newValue;
-			candidates --; // Update candidate numbers
-		}
-		
-		if (1 < candidates) 
-			cell.currentValue = 0;
-		else if (1 == candidates) {
-			int i = 0;
-			while (! cell.candidate[i]) i++;
-			cell.currentValue = i+1;
-		} 
-		
-		
-		
+		cell.setCandidateStatus(0, (boolean)value, row, column);		
+		fireTableCellUpdated(row, column);
+	}
+	public void setValueAt(int logLevel, Object value, int row, int column) {
+		// TODO Auto-generated method stub
+		Boolean newValue = (Boolean) value;
+		cell.setCandidateStatus(logLevel, (boolean)value, row, column);		
 		fireTableCellUpdated(row, column);
 	}
 	
 	@Override
     public boolean isCellEditable(int row, int col) {
 		return true;
+		
 	}
 }

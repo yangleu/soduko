@@ -10,7 +10,7 @@ import javax.swing.Spring;
 import javax.swing.SpringLayout;
 import javax.swing.table.TableColumn;
 
-import misc.LeoLog;
+import misc.GameFactory;
 import data.GameCell;
 
 public class CopyOfCellPanel extends JPanel{
@@ -79,7 +79,7 @@ public class CopyOfCellPanel extends JPanel{
 		this.setOpaque(true);
 		this.setBackground(Color.pink);
 		SpringLayout.Constraints panelCons = new SpringLayout.Constraints(this);
-		LeoLog.printConstraint(panelCons, "CellPanel Constraint");
+		GameFactory.printConstraint(panelCons, "CellPanel Constraint");
 		Spring itemSpring = Spring.max(panelCons.getConstraint(SpringLayout.NORTH),
 									   panelCons.getConstraint(SpringLayout.WEST));
 		

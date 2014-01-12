@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
-import misc.LeoLog;
+import misc.GameFactory;
 import data.Game;
 import data.GameCell;
 import data.GameTableModel;
@@ -31,12 +31,13 @@ public class GameTable extends JTable{
 
 		setDefaultRenderer(GameCell.class, new GameCellRenderer());
 		this.setDefaultEditor(GameCell.class, new GameCellEditor());
-		setIntercellSpacing(new Dimension(1,1));
-		this.setRowMargin(1);
-		setPreferredScrollableViewportSize(tableSize);
+		setIntercellSpacing(new Dimension(3,3));
+		//this.setRowMargin(5);
+		
+		//setPreferredScrollableViewportSize(tableSize);
 		setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		setRowHeight(tableCellSize.height );
-		setGridColor(Color.BLACK);
+		setBackground(Color.BLACK);
 		
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.setShowHorizontalLines(true);

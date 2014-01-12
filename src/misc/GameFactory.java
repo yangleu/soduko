@@ -1,12 +1,30 @@
 package misc;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.awt.Color;
 
 import javax.swing.Spring;
 import javax.swing.SpringLayout;
 
-public  class LeoLog {
+public  class GameFactory {
+	public static Color CrossCellColor = Color.PINK;
+	public static Color BaseCellColor = Color.white;
+	public static GameConfiguration GameConfig = new GameConfiguration();
+
+	public static Color getBackgroundColor(int row, int column) {
+		Color mycolor=BaseCellColor;
+		
+    	if ( ( (5<row) || (3>row) ) && ( (5<column) || (3>column)  ) ) { // 4 corners
+    		mycolor = GameFactory.BaseCellColor;
+    	} else {
+    		if ( ( (6>row) && (2<row) ) && ( (6>column) && (2<column)  ) ) // The center cell
+    			mycolor = GameFactory.BaseCellColor;
+    		else
+    			mycolor = GameFactory.CrossCellColor;
+    	}		
+		
+		return mycolor;
+	}
+	
 	public static void print(String msg) {
 		System.out.print(msg);
 	}
@@ -67,5 +85,15 @@ public  class LeoLog {
 //			
 //		}
 		
+	}
+	
+	public static void log(String logMsg) {
+		System.out.println(logMsg);
+	}
+	
+	public static void log(int level, String logMsg) {
+		String prefix="";
+		for (int i=0;i<level;i++) prefix=prefix+"   ";
+		System.out.println(prefix+logMsg);
 	}
 }

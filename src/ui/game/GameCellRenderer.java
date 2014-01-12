@@ -1,11 +1,13 @@
 package ui.game;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JComponent;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
+import misc.GameFactory;
 import data.GameCell;
 
 public class GameCellRenderer extends JComponent
@@ -19,7 +21,11 @@ implements TableCellRenderer {
     	GameCell gcell = gtable.getCell(row, column);
     
     if (table instanceof GameTable) {
-     	return new CellPanel(gcell, ((GameTable)table).getTableCellSize());    	
+    	// Determine the background color, 4 corner and center cell is base cell color
+    	// Cross cell w/o center center is cross color
+    	CellPanel theCellPanel = new CellPanel(gcell, ((GameTable)table).getTableCellSize(),
+    										    GameFactory.getBackgroundColor(row, column));
+     	return    theCellPanel;
     }
 
     return null;

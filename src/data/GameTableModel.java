@@ -48,4 +48,9 @@ public class GameTableModel extends AbstractTableModel {
 		if (0 != game.get(row, column).gameValue) return false;
 		else return true;
 	}
+	
+	@Override
+	public String getColumnName(int column) {
+		return ( "Column " + (column+1));
+	}
 }

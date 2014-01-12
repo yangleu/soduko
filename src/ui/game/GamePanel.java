@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import misc.LeoLog;
+import misc.GameFactory;
 import data.Game;
 
 public class GamePanel extends JPanel implements ActionListener{
@@ -34,12 +34,12 @@ public class GamePanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if ("printInfo".endsWith(e.getActionCommand())) {
-			LeoLog.println("Table column width " + gtable.getColumnModel().getColumn(0).getWidth());
-			LeoLog.println("Cell dimention: " + gtable.getTableCellSize());
-			LeoLog.println("Table height: " + gtable.getRowHeight());
-			LeoLog.println("Row Margin: " + gtable.getRowMargin());
+			GameFactory.println("Table column width " + gtable.getColumnModel().getColumn(0).getWidth());
+			GameFactory.println("Cell dimention: " + gtable.getTableCellSize());
+			GameFactory.println("Table height: " + gtable.getRowHeight());
+			GameFactory.println("Row Margin: " + gtable.getRowMargin());
 			
-			LeoLog.println("Real Cell size ");
+			GameFactory.println("Real Cell size ");
 		}
 	};
 	

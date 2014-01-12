@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.Spring;
 import javax.swing.SpringLayout;
 
-import misc.LeoLog;
+import misc.GameFactory;
 import ui.game.CellCandidateTable;
 import ui.game.CellPanel;
 import ui.game.GamePanel;
@@ -117,7 +117,7 @@ public class MyTest {
 				panel1.setBorder(BorderFactory.createLineBorder(Color.GREEN));
 				
 				mycell3 = new GameCell();
-				mycell3.deselectCandidate(3);
+				mycell3.deselectCandidate(0, 3);
 				panel3 = new CellPanel (mycell3,panelsize);
 				panel3.setPreferredSize(panelsize);
 				panel3.setBorder(BorderFactory.createLineBorder(Color.GREEN));
@@ -149,14 +149,14 @@ public class MyTest {
 				// TODO Auto-generated method stub
 			
 				if ("printInfo".endsWith(e.getActionCommand())) {
-					LeoLog.println("printInfo is clicked");
+					GameFactory.println("printInfo is clicked");
 					
 					printcontainerConstraints(panel1, "Panel 1");
 					printcontainerConstraints(panel3, "Panel 3");
 				}
 				
 				if ("moveChild".endsWith(e.getActionCommand())) {
-					LeoLog.println("moveChild is clicked");
+					GameFactory.println("moveChild is clicked");
 
 					SpringLayout.Constraints cCons = new SpringLayout.Constraints(panel1.getComponent(0));
 					cCons.setX(Spring.constant(0));
@@ -172,12 +172,12 @@ public class MyTest {
 			void printcontainerConstraints(Container parent, String pName) {
 				
 				SpringLayout.Constraints pCons = new SpringLayout.Constraints(parent);
-				LeoLog.printConstraint(pCons, pName);
+				GameFactory.printConstraint(pCons, pName);
 				int children = parent.getComponentCount();
 				int i=0;
 				while (i< children) {
 					SpringLayout.Constraints cCons = new SpringLayout.Constraints(parent.getComponent(i));
-					LeoLog.printConstraint(cCons, pName + "::Comp(" +i + ")");
+					GameFactory.printConstraint(cCons, pName + "::Comp(" +i + ")");
 					
 					i++;
 				}
@@ -256,7 +256,7 @@ public class MyTest {
             public void run() {
             	//          	testCellPanel();
             	testGameTable();
-//            	testGamePanel();
+           	testGamePanel();
 //            	testGameSpringPanel();
          //            	testTestGameSpringPanel();
             }
