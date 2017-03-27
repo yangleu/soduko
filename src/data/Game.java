@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+// To test git
+
 public class Game {
 	// In all the function, row/column starts from 0,
 	private GameCell cell[][] = new GameCell[9][9];
